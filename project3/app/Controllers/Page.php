@@ -18,4 +18,5 @@ class Page extends BaseController
     {
         echo view("Faqs");
     }
+    
 }
