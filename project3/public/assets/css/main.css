@@ -1,0 +1,643 @@
+/* assets/css/main.css - Konsep Personal Portfolio & Task Manager */
+
+/* ===== Variable CSS (Palet Warna Baru) ===== */
+:root {
+  --primary-personal: #8A2BE2; /* Biru Ungu / Amethyst */
+  --accent-personal: #FFD700; /* Emas */
+  --text-dark-personal: #333333;
+  --text-medium-personal: #666666;
+  --text-light-personal: #FFFFFF;
+  --bg-light-personal: #F5F5F5; /* Latar belakang aplikasi */
+  --bg-white-personal: #FFFFFF;
+  --border-color-personal: #E0E0E0;
+  --shadow-light-personal: 0 4px 15px rgba(0, 0, 0, 0.08);
+  --shadow-medium-personal: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+  --font-heading-personal: 'Playfair Display', serif;
+  --font-body-personal: 'Open Sans', sans-serif;
+
+  --border-radius-sm-personal: 5px;
+  --border-radius-md-personal: 10px;
+  --border-radius-lg-personal: 50px; /* Untuk tombol bulat */
+}
+
+/* ===== Global Styles Overrides ===== */
+body {
+  font-family: var(--font-body-personal);
+  color: var(--text-dark-personal);
+  background-color: var(--bg-light-personal);
+}
+
+h1, h2, h3, h4, h5, h6, .sitename, .section-title h2 {
+  font-family: var(--font-heading-personal);
+  color: var(--text-dark-personal);
+}
+
+a {
+  color: var(--primary-personal);
+  text-decoration: none;
+}
+a:hover {
+  color: #6A1AAB; /* Darker amethyst */
+}
+
+.section {
+    padding: 80px 0;
+}
+.section-title h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    position: relative;
+    padding-bottom: 20px;
+}
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-personal);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.section-title p {
+    color: var(--text-medium-personal);
+    font-size: 1.1rem;
+}
+
+/* ===== Header & Navbar ===== */
+.header {
+  background-color: var(--bg-white-personal);
+  box-shadow: var(--shadow-light-personal);
+  padding: 10px 0;
+}
+
+.sitename {
+  color: var(--primary-personal);
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.navmenu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* Makes menu items horizontal */
+  align-items: center;
+}
+
+.navmenu ul li {
+  position: relative;
+  white-space: nowrap;
+  padding: 0 12px;
+}
+
+.navmenu ul li a {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  font-weight: 600; /* Slightly bolder nav links */
+  color: var(--text-medium-personal);
+  transition: color 0.3s ease;
+  font-size: 1.05rem;
+}
+
+.navmenu ul li a:hover,
+.navmenu ul li a.active {
+  color: var(--primary-personal);
+}
+
+.btn-getstarted {
+  background-color: var(--primary-personal);
+  color: var(--text-light-personal);
+  border-radius: var(--border-radius-lg-personal);
+  padding: 8px 25px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  border: 2px solid var(--primary-personal);
+}
+.btn-getstarted:hover {
+  background-color: #6A1AAB; /* Darker amethyst */
+  border-color: #6A1AAB;
+}
+
+/* Mobile Navigation Toggle */
+.mobile-nav-toggle {
+  display: none; /* Hidden by default on desktop */
+  color: var(--text-dark-personal);
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 0;
+  transition: 0.5s;
+}
+
+@media (max-width: 1200px) { /* Adjust breakpoint as needed */
+  .mobile-nav-toggle {
+    display: block;
+  }
+  .navmenu {
+    display: none; /* Hide default navmenu */
+  }
+  .btn-getstarted {
+      margin-left: auto;
+  }
+}
+/* Style for active mobile nav */
+.navmenu.mobile-active {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9990;
+    overflow-y: auto;
+    background: rgba(var(--text-dark-personal), 0.9); /* Semi-transparent dark overlay */
+}
+.navmenu.mobile-active ul {
+    flex-direction: column;
+    padding: 20px 0;
+    text-align: center;
+}
+.navmenu.mobile-active ul li {
+    padding: 10px 0;
+}
+.navmenu.mobile-active ul li a {
+    color: var(--text-light-personal);
+    font-size: 1.2rem;
+}
+.navmenu.mobile-active ul li a:hover {
+    color: var(--accent-personal);
+}
+
+/* ===== Hero Section ===== */
+.hero.section {
+  background-color: var(--bg-light-personal);
+  padding: 100px 0;
+  background-image: linear-gradient(to right top, #e6e6fa, #f0f0ff, #f9f9ff, #ffffff, #ffffff); /* Light gradient background */
+}
+
+.hero .hero-tag {
+  background-color: var(--accent-personal);
+  color: var(--text-dark-personal);
+  padding: 8px 20px;
+  border-radius: var(--border-radius-lg-personal);
+  font-weight: 600;
+  font-size: 0.95em;
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 25px;
+  box-shadow: var(--shadow-light-personal);
+}
+.hero .hero-tag i {
+  margin-right: 10px;
+  font-size: 1.3em;
+}
+
+.hero h1 {
+  font-family: var(--font-heading-personal);
+  font-size: 3.8rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--text-dark-personal);
+  margin-bottom: 25px;
+}
+@media (max-width: 991px) {
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+}
+
+.hero h1 .highlight {
+  color: var(--primary-personal);
+}
+
+.hero .lead {
+  font-size: 1.15rem;
+  color: var(--text-medium-personal);
+  margin-bottom: 30px;
+}
+
+.hero .hero-features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+  color: var(--text-medium-personal);
+}
+.hero .hero-features li {
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+}
+.hero .hero-features i {
+  color: var(--primary-personal);
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+.hero-cta .custom-btn-primary {
+  background-color: var(--primary-personal);
+  border-color: var(--primary-personal);
+  color: var(--text-light-personal);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.hero-cta .custom-btn-primary:hover {
+  background-color: #6A1AAB; /* Darker amethyst */
+  border-color: #6A1AAB;
+}
+
+.hero-cta .custom-btn-outline {
+  border-color: var(--primary-personal);
+  color: var(--primary-personal);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.hero-cta .custom-btn-outline:hover {
+  background-color: rgba(var(--primary-personal), 0.1);
+  color: #6A1AAB; /* Darker amethyst */
+}
+
+.hero-profile-img {
+    border-radius: var(--border-radius-md-personal);
+    box-shadow: var(--shadow-medium-personal);
+    width: 100%;
+    height: auto;
+}
+
+/* ===== About Section ===== */
+.about .feature-box {
+  background-color: var(--bg-white-personal);
+  padding: 35px;
+  border-radius: var(--border-radius-md-personal);
+  box-shadow: var(--shadow-light-personal);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+.about .feature-box:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-medium-personal);
+}
+
+.about .feature-box .icon-container {
+  background-color: var(--primary-personal);
+  color: var(--text-light-personal);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 15px rgba(138, 43, 226, 0.3); /* rgba(var(--primary-personal), 0.3) */
+}
+
+.about .feature-box h4 {
+  font-family: var(--font-heading-personal);
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.about .progress-item .progress-bar {
+  background-color: var(--primary-personal);
+  border-radius: var(--border-radius-lg-personal);
+}
+.about .progress {
+  height: 8px;
+  border-radius: var(--border-radius-lg-personal);
+  background-color: var(--border-color-personal);
+}
+
+.about .img-grid-main {
+    border-radius: var(--border-radius-md-personal);
+    box-shadow: var(--shadow-medium-personal);
+}
+.about .experience-badge {
+    background-color: var(--accent-personal);
+    color: var(--text-dark-personal);
+    border-radius: var(--border-radius-lg-personal);
+    box-shadow: var(--shadow-light-personal);
+}
+.about .experience-badge .years {
+    color: var(--text-dark-personal);
+}
+
+/* ===== Portfolio Section ===== */
+.portfolio.section {
+    background-color: var(--bg-white-personal);
+}
+.portfolio .portfolio-item {
+  background: var(--bg-white-personal);
+  border-radius: var(--border-radius-md-personal);
+  overflow: hidden;
+  box-shadow: var(--shadow-light-personal);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.portfolio .portfolio-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium-personal);
+}
+.portfolio .portfolio-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+.portfolio .portfolio-info {
+  padding: 20px;
+  text-align: center;
+  flex-grow: 1; /* Occupy remaining space */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.portfolio .portfolio-info h4 {
+  font-family: var(--font-heading-personal);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-dark-personal);
+  margin-bottom: 10px;
+}
+.portfolio .portfolio-info p {
+  font-size: 0.95rem;
+  color: var(--text-medium-personal);
+  margin-bottom: 20px;
+}
+.portfolio .preview-link, .portfolio .details-link {
+  background: var(--primary-personal);
+  color: var(--text-light-personal);
+  padding: 8px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 5px;
+  transition: all 0.3s ease;
+}
+.portfolio .preview-link:hover, .portfolio .details-link:hover {
+  background: #6A1AAB; /* Darker amethyst */
+}
+
+/* ===== Blog Section ===== */
+.blog.section {
+    background-color: var(--bg-light-personal);
+}
+.blog-item {
+  background: var(--bg-white-personal);
+  border-radius: var(--border-radius-md-personal);
+  overflow: hidden;
+  box-shadow: var(--shadow-light-personal);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.blog-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium-personal);
+}
+.blog-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.blog-content {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.blog-content .title {
+  font-family: var(--font-heading-personal);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.blog-content .title a {
+  color: var(--text-dark-personal);
+  transition: color 0.3s ease;
+}
+.blog-content .title a:hover {
+  color: var(--primary-personal);
+}
+.blog-content .meta-top ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+  display: flex;
+  font-size: 0.85rem;
+  color: var(--text-medium-personal);
+}
+.blog-content .meta-top li {
+  margin-right: 15px;
+}
+.blog-content .meta-top i {
+  margin-right: 5px;
+  color: var(--primary-personal);
+}
+.blog-content .read-more a {
+    color: var(--primary-personal);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    margin-top: auto; /* Push to bottom */
+}
+.blog-content .read-more a i {
+    margin-left: 5px;
+}
+
+
+/* ===== Task Manager Section (CRUD) ===== */
+.task-manager-section {
+    background-color: var(--bg-white-personal);
+    padding: 80px 0;
+}
+
+.task-table {
+    background-color: var(--bg-white-personal);
+    border-radius: var(--border-radius-md-personal);
+    overflow: hidden; /* For rounded corners on table */
+    box-shadow: var(--shadow-light-personal);
+}
+
+.task-table thead th {
+    background-color: var(--primary-personal);
+    color: var(--text-light-personal);
+    font-weight: 600;
+    border-bottom: none;
+    padding: 15px;
+}
+
+.task-table tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+.task-table tbody tr:hover {
+    background-color: #F0E6FF; /* Light purple hover for rows */
+}
+
+.task-table tbody td {
+    vertical-align: middle;
+    padding: 12px 15px;
+    border-color: var(--border-color-personal);
+}
+
+.task-table .badge {
+    padding: 8px 12px;
+    border-radius: var(--border-radius-lg-personal);
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+/* Specific button colors for CRUD actions */
+.btn-info.text-white {
+    background-color: #007BFF; /* Standard Bootstrap info blue */
+    border-color: #007BFF;
+}
+.btn-info.text-white:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #DC3545; /* Standard Bootstrap danger red */
+    border-color: #DC3545;
+}
+.btn-danger:hover {
+    background-color: #C82333;
+    border-color: #C82333;
+}
+
+.btn-success { /* Used for 'Add New Task' */
+    background-color: var(--primary-personal); /* Use primary color for main action */
+    border-color: var(--primary-personal);
+}
+.btn-success:hover {
+    background-color: #6A1AAB; /* Darker amethyst */
+    border-color: #6A1AAB;
+}
+
+
+/* Modal Styling */
+.modal-content {
+    border-radius: var(--border-radius-md-personal);
+    box-shadow: var(--shadow-medium-personal);
+    border: none;
+}
+.modal-header {
+    background-color: var(--primary-personal);
+    color: var(--text-light-personal);
+    border-top-left-radius: var(--border-radius-md-personal);
+    border-top-right-radius: var(--border-radius-md-personal);
+    border-bottom: none;
+}
+.modal-title {
+    font-family: var(--font-heading-personal);
+    font-weight: 700;
+}
+.modal-body {
+    padding: 30px;
+}
+.modal-footer {
+    border-top: 1px solid var(--border-color-personal);
+}
+.modal .form-control, .modal .form-select {
+    border-radius: var(--border-radius-sm-personal);
+    border-color: var(--border-color-personal);
+}
+
+
+/* ===== Contact Section ===== */
+.contact.section {
+    background-color: var(--bg-light-personal);
+}
+.contact-main-wrapper {
+  background-color: var(--bg-white-personal);
+  border-radius: var(--border-radius-md-personal);
+  box-shadow: var(--shadow-light-personal);
+  padding: 30px;
+}
+.map-wrapper {
+  border-radius: var(--border-radius-md-personal);
+  box-shadow: var(--shadow-light-personal);
+}
+.contact-card {
+  background-color: var(--bg-light-personal);
+  border-radius: var(--border-radius-md-personal);
+  box-shadow: none;
+}
+.contact-card .icon-box {
+  background-color: var(--primary-personal);
+  color: var(--text-light-personal);
+  box-shadow: 0 5px 15px rgba(138, 43, 226, 0.3); /* rgba(var(--primary-personal), 0.3) */
+}
+.php-email-form button[type="submit"] {
+  background-color: var(--primary-personal);
+  color: var(--text-light-personal);
+  border-radius: var(--border-radius-lg-personal);
+  box-shadow: var(--shadow-light-personal);
+}
+.php-email-form button[type="submit"]:hover {
+  background-color: #6A1AAB; /* Darker amethyst */
+}
+.form-submit .social-links a {
+  color: var(--text-medium-personal); /* Default social icon color */
+  margin-left: 15px;
+  font-size: 1.4rem;
+  transition: color 0.3s ease;
+}
+.form-submit .social-links a:hover {
+  color: var(--primary-personal);
+}
+
+/* ===== Footer ===== */
+.footer {
+  background-color: #333333; /* Darker footer */
+  color: rgba(255, 255, 255, 0.7);
+}
+.footer .sitename {
+  color: var(--primary-personal);
+}
+.footer .footer-contact p strong {
+    color: var(--text-light-personal);
+}
+.footer .social-links a {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-light-personal);
+}
+.footer .social-links a:hover {
+  background-color: var(--primary-personal);
+}
+
+.footer-links h4 {
+  color: var(--text-light-personal);
+}
+.footer-links ul li a {
+  color: rgba(255, 255, 255, 0.7);
+}
+.footer-links ul li a:hover {
+  color: var(--primary-personal);
+}
+
+.footer .copyright {
+  color: rgba(255, 255, 255, 0.5);
+}
+.footer .copyright .sitename {
+  color: var(--text-light-personal);
+}
+.footer .credits a {
+  color: var(--primary-personal);
+}
+
+
+/* ===== Scroll Top Button ===== */
+#scroll-top {
+  background-color: var(--primary-personal);
+  color: var(--text-light-personal);
+  border-radius: var(--border-radius-lg-personal);
+  box-shadow: var(--shadow-light-personal);
+}
+#scroll-top:hover {
+  background-color: #6A1AAB; /* Darker amethyst */
+}
