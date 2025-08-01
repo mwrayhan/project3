@@ -2,7 +2,7 @@
 
 ### Oleh: RAIHANUL MAWA
 ### NIM : 22260013
-Mahasiswa jurusan [Teknik Infomartika], [Universitas Nahdlatul Ulama Indonesia].
+Mahasiswa jurusan **Teknik Infomartika** **Universitas Nahdlatul Ulama Indonesia**
 
 ---
 
