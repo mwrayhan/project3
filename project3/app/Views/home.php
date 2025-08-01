@@ -8,17 +8,17 @@
   <meta name="description" content="Situs pribadi Raihanul Mawa: Portofolio proyek, blog, dan alat manajemen tugas kuliah.">
   <meta name="keywords" content="Raihanul Mawa, personal website, portfolio, project management, task manager, kuliah, mahasiswa, blog, teknologi">
 
-  <link href="assets/img/profile_icon.png" rel="icon">
-  <link href="assets/img/profile_apple_icon.png" rel="apple-touch-icon">
+  <link href="<?= base_url('assets/img/profile_icon.png') ?>" rel="icon">
+  <link href="<?= base_url('assets/img/profile_apple_icon.png') ?>" rel="apple-touch-icon">
 
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="<?= base_url('assets/vendor/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
+  <link href="<?= base_url('assets/vendor/bootstrap-icons/bootstrap-icons.css') ?>" rel="stylesheet">
+  <link href="<?= base_url('assets/vendor/aos/aos.css') ?>" rel="stylesheet">
+  <link href="<?= base_url('assets/css/main.css') ?>" rel="stylesheet">
 </head>
 
 <body class="index-page">
@@ -36,13 +36,19 @@
           <li><a href="#about">Tentang Saya</a></li>
           <li><a href="#portfolio">Portofolio</a></li>
           <li><a href="#blog">Blog</a></li>
+		  <?php if (logged_in()): ?>
           <li><a href="#task-manager">Manajemen Tugas Kuliah</a></li>
+		  <?php endif; ?>
           <li><a href="#contact">Kontak</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="#task-manager">Kelola Tugas</a>
+	  <?php if (logged_in()): ?>
+      	<a class="btn-getstarted" href="#task-manager">Kelola Tugas</a>
+	  <?php else: ?>
+  		<a class="btn-getstarted" href="<?= base_url('login') ?>">Login</a>
+		<?php endif; ?>
     </div>
   </header>
 
@@ -72,7 +78,7 @@
           </div>
           <div class="col-lg-6">
             <div class="hero-image-wrapper text-center" data-aos="fade-up" data-aos-delay="300">
-              <img src="assets/img/raihan.png" alt="Raihanul Mawa Profile" class="img-fluid hero-profile-img">
+              <img src="<?= base_url('assets/img/raihan.png') ?>" alt="Raihanul Mawa Profile" class="img-fluid hero-profile-img">
             </div>
           </div>
         </div>
@@ -268,7 +274,10 @@
             </div>
           </div></div>
       </div>
-    </section><section id="task-manager" class="task-manager-section section">
+    </section>
+
+	<?php if (logged_in()): ?>
+	<section id="task-manager" class="task-manager-section section">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="section-title text-center">
           <h2>Manajemen Tugas Kuliah Saya</h2>
@@ -427,6 +436,7 @@
         </div>
       </div>
     </div>
+	<?php endif; ?>
 
     <section id="contact" class="contact section">
       <div class="container section-title" data-aos="fade-up">
@@ -447,7 +457,7 @@
                 </div>
                 <div class="contact-text">
                   <h4>Domisili</h4>
-                  <p>Sukabumi, Jawa Barat, Indonesia</p>
+                  <p>Cianjur, Jawa Barat, Indonesia</p>
                 </div>
               </div>
 
@@ -457,7 +467,7 @@
                 </div>
                 <div class="contact-text">
                   <h4>Email</h4>
-                  <p>raihanulmawa@example.com</p>
+                  <p>raihanulmawa@gmail.com</p>
                 </div>
               </div>
 
@@ -467,7 +477,7 @@
                 </div>
                 <div class="contact-text">
                   <h4>Telepon</h4>
-                  <p>+62 812-3456-7890</p>
+                  <p>+62 857-7351-7348</p>
                 </div>
               </div>
 
@@ -533,10 +543,10 @@
             <span class="sitename">Raihanul Mawa</span>
           </a>
           <div class="footer-contact pt-3">
-            <p>Sukabumi, Jawa Barat</p>
+            <p>Cianjur, Jawa Barat</p>
             <p>Indonesia</p>
-            <p class="mt-3"><strong>Telepon:</strong> <span>+62 812-3456-7890</span></p>
-            <p><strong>Email:</strong> <span>raihanulmawa@example.com</span></p>
+            <p class="mt-3"><strong>Telepon:</strong> <span>+62 857-7351-7348</span></p>
+            <p><strong>Email:</strong> <span>raihanulmawa@gmail.com</span></p>
           </div>
           <div class="social-links d-flex mt-4">
             <a href=""><i class="bi bi-twitter-x"></i></a>
@@ -605,9 +615,9 @@
 
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="<?= base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+  <script src="<?= base_url('assets/vendor/aos/aos.js') ?>"></script>
+  <script src="<?= base_url('assets/vendor/purecounter/purecounter_vanilla.js') ?>"></script>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
